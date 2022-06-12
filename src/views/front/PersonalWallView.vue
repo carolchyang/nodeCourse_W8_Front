@@ -137,7 +137,8 @@ export default {
     // 判斷是否追蹤
     isFollow() {
       let val = false;
-      this.profile?.following.forEach((item) => {
+      const data = this.profile?.following || [];
+      data.forEach((item) => {
         if (item.user == this.personalId) {
           val = true;
         }
