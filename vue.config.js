@@ -2,7 +2,7 @@ const { defineConfig } = require("@vue/cli-service");
 module.exports = defineConfig({
   transpileDependencies: true,
   publicPath:
-    process.env.NODE_ENV === "production" ? "/nodeCourse_W7_Front/" : "/",
+    process.env.NODE_ENV === "production" ? "/nodeCourse_W8_Front/" : "/",
   configureWebpack: {
     performance: {
       hints: "warning",
