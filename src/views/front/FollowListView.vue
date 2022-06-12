@@ -2,7 +2,12 @@
   <h1 class="header">追蹤名單</h1>
 
   <ul class="mb-6">
-    <li class="card customList" v-for="(item, key) in follows" :key="key">
+    <li
+      class="card customList"
+      v-for="(item, key) in follows"
+      :key="key"
+      :class="{ disabled: !item.user }"
+    >
       <div class="d-flex flex-column flex-md-row align-items-center">
         <img
           :src="item.user?.photo"
@@ -32,6 +37,11 @@
 
           <span class="d-block">取消</span>
         </a>
+        <!-- 若找不到用戶資訊 -->
+        <p class="text-center fs-6" v-if="!item.user">
+          此用戶
+          <span class="d-block">已被刪除</span>
+        </p>
         <router-link
           :to="{
             path: `/personalwall/${item.user?._id}`,
@@ -41,6 +51,7 @@
             },
           }"
           class="link-dark me-md-9 text-center fw-bold text-decoration-none"
+          v-else
         >
           <i class="bi bi-arrow-right-circle fs-4 lh-sm"></i>
           <span class="d-block">查看</span>
